@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTU School Management System</title>
+    <style>
+        /* General Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Brand Colors */
+        :root {
+            --ctu-blue: #000000;
+            --ctu-gold: #fa2d08;
+            --ctu-dark: #002A40;
+            --ctu-light: #F2F6FA;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--ctu-light);
+            color: var(--ctu-dark);
+        }
+
+        header {
+            background-color: var(--ctu-blue);
+            color: var(--ctu-gold);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header .logo img {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        header .logo h1 {
+            display: inline;
+            font-size: 1.4em;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--ctu-light);
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--ctu-gold);
+            color: var(--ctu-dark);
+            border-radius: 4px;
+        }
+
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--ctu-blue);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: var(--ctu-light);
+        }
+
+        nav .dropdown-content a:hover {
+            background-color: var(--ctu-gold);
+            color: var(--ctu-dark);
+        }
+
+        /* Slider */
+        .slider { overflow: hidden; width: 100%; margin-top: 20px; }
+        .slider .slides { display: flex; transition: transform 0.5s ease; }
+        .slider img { width: 100%; height: auto; }
+
+        /* Welcome Section */
+        .welcome {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--ctu-light);
+        }
+
+        .welcome h2 { font-size: 2.8em; color: var(--ctu-blue); margin-bottom: 20px; }
+        .welcome p { font-size: 1.2em; max-width: 600px; margin: 0 auto; }
+
+        /* Footer */
+        footer {
+            background-color: var(--ctu-dark);
+            color: var(--ctu-light);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer .social-links a {
+            color: var(--ctu-gold);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .social-links a:hover { text-decoration: underline; }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul li { display: block; margin: 8px 0; }
+            .welcome h2 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with CTU Logo and Navigation -->
+    <header>
+        <div class="logo">
+            <img src="joseph.png.png">
+           <h1>CEBU TECHNOLOGICAL UNIVERSITY-CEBU CITY MOUNTAIN SATELLITE CAMPUS</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Programs Offered</a>
+                    <div class="dropdown-content">
+                        <a href="#news">BIT-CT</a>
+                        <a href="#events">EDUCATION</a>
+                        <a href="#services">AGRICULTURE</a>
+                    </div>
+                </li>
+                <li><a href="#faculty">Faculty</a></li> 
+                <li class="dropdown">
+                    <a href="#">Student Services</a>
+                    <div class="dropdown-content">
+                        <a href="#news">Alumni</a>
+                        <a href="#events">Enrollment</a>
+                        <a href="#events">OJT</a>
+                        <a href="#events">JOB POSTING</a>
+                    </div>
+                </li>          
+                <li class="dropdown">
+                    <a href="#">More</a>
+                    <div class="dropdown-content">
+                        <a href="#news">News</a>
+                        <a href="#events">Events</a>
+                        <a href="#events">Contacts</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image Slider -->
+    <section class="slider">
+        <div class="slides">
+            <img src="https://via.placeholder.com/1200x400/005587/FFD200?text=Welcome+to+CTU" alt="CTU Banner 1">
+            <img src="https://via.placeholder.com/1200x400/002A40/FFD200?text=Excellence+in+Education" alt="CTU Banner 2">
+            <img src="https://via.placeholder.com/1200x400/005587/FFD200?text=Innovate+and+Inspire" alt="CTU Banner 3">
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="about" class="welcome">
+        <h2>Welcome to CTU-CCMSC School Management System</h2>
+        <p>Experience world-class education and cutting-edge technology at Cebu Technological University. Our platform streamlines academic and administrative tasks for students, faculty, and staff.</p>
+    </section>
+
+    <!-- Footer with Social Links -->
+    <footer>
+        <p>&copy; 2025 Cebu Technological University</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        // Image Slider JavaScript
+        let slideIndex = 0;
+        function showSlides() {
+            const slides = document.querySelectorAll(".slider img");
+            slides.forEach(slide => slide.style.display = "none");
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        document.addEventListener("DOMContentLoaded", showSlides);
+    </script>
+</body>
+</html>
