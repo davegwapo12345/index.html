@@ -1,216 +1,751 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTU School Management System</title>
-    <style>
-        /* General Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('landingpage/img/logo2.png') }}" type="image/gif" sizes="16x16">
+    <title>Cebu Technological University</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ asset('landingpage/css/base-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap 5 JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        /* Brand Colors */
-        :root {
-            --ctu-blue: #000000;
-            --ctu-gold: #fa2d08;
-            --ctu-dark: #002A40;
-            --ctu-light: #F2F6FA;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--ctu-light);
-            color: var(--ctu-dark);
-        }
-
-        header {
-            background-color: var(--ctu-blue);
-            color: var(--ctu-gold);
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        header .logo img {
-            height: 50px;
-            vertical-align: middle;
-        }
-
-        header .logo h1 {
-            display: inline;
-            font-size: 1.4em;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        nav ul {
-            list-style-type: none;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: var(--ctu-light);
-            text-decoration: none;
-            font-size: 1em;
-            padding: 5px 10px;
-        }
-
-        nav ul li a:hover {
-            background-color: var(--ctu-gold);
-            color: var(--ctu-dark);
-            border-radius: 4px;
-        }
-
-        nav .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        nav .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--ctu-blue);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        nav .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        nav .dropdown-content a {
-            display: block;
-            padding: 10px;
-            color: var(--ctu-light);
-        }
-
-        nav .dropdown-content a:hover {
-            background-color: var(--ctu-gold);
-            color: var(--ctu-dark);
-        }
-
-        /* Slider */
-        .slider { overflow: hidden; width: 100%; margin-top: 20px; }
-        .slider .slides { display: flex; transition: transform 0.5s ease; }
-        .slider img { width: 100%; height: auto; }
-
-        /* Welcome Section */
-        .welcome {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--ctu-light);
-        }
-
-        .welcome h2 { font-size: 2.8em; color: var(--ctu-blue); margin-bottom: 20px; }
-        .welcome p { font-size: 1.2em; max-width: 600px; margin: 0 auto; }
-
-        /* Footer */
-        footer {
-            background-color: var(--ctu-dark);
-            color: var(--ctu-light);
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        footer .social-links a {
-            color: var(--ctu-gold);
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer .social-links a:hover { text-decoration: underline; }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            nav ul li { display: block; margin: 8px 0; }
-            .welcome h2 { font-size: 2em; }
-        }
-    </style>
 </head>
-<body>
 
-    <!-- Header with CTU Logo and Navigation -->
-    <header>
-        <div class="logo">
-            <img src="joseph.png.png">
-           <h1>CEBU TECHNOLOGICAL UNIVERSITY-CEBU CITY MOUNTAIN SATELLITE CAMPUS</h1>
+
+
+<style>
+    .card-school {
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .card-school:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-school .card-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+
+    .card-school .card-text {
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .section-icon {
+        font-size: 1.5rem;
+        color: #0d6efd;
+        margin-right: 8px;
+    }
+</style>
+
+
+<body >
+<!-- preloader -->
+<div class="ch-preloader-sec">
+    <div id="ch-preloader">
+        <div id="chp-top" class="mask">
+        <div class="plane"></div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li class="dropdown">
-                    <a href="#">Programs Offered</a>
-                    <div class="dropdown-content">
-                        <a href="#news">BIT-CT</a>
-                        <a href="#events">EDUCATION</a>
-                        <a href="#services">AGRICULTURE</a>
+        <div id="chp-middle" class="mask">
+        <div class="plane"></div>
+        </div>
+        <div id="chp-bottom" class="mask">
+            <div class="plane"></div>
+        </div>
+        <p><i>LOADING...</i></p>
+        
+    </div>
+</div>
+<div class="ch-banner-sec">
+
+    
+
+    <header class="ch-header-sec">
+        <div class="container-fluid">
+            <div class="header-top py-2 text-white">
+                
+                <div class="h-lang">
+                    <span class="lang-text"></span>
+                    <div class="">
+                        <label class="lang-item">
+                            <input type="radio" name="lang">
+                            
+                        </label>
+                        <label class="lang-item">
+                            <input type="radio" name="lang" >
+                            
+                        </label>
+                        <label class="lang-item">
+                            <input type="radio" name="lang">
+                            
+                        </label>
                     </div>
-                </li>
-                <li><a href="#faculty">Faculty</a></li> 
-                <li class="dropdown">
-                    <a href="#">Student Services</a>
-                    <div class="dropdown-content">
-                        <a href="#news">Alumni</a>
-                        <a href="#events">Enrollment</a>
-                        <a href="#events">OJT</a>
-                        <a href="#events">JOB POSTING</a>
+                </div>
+            </div>
+            <div class="ch-header rounded-10 py-2 py-xl-0 bg-white px-3">
+                <a href="#" class="h-logo pe-3" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="{{ asset('landingpage/img/logo.jpg') }}" style="width: 100px; margin-right: 10px;" alt="Logo">
+                    <div style="display: flex; flex-direction: row; align-items: center; white-space: nowrap;">
+                        <span style="color: Tomato; font-size: 1.5rem; font-weight: bold; margin-right: 5px;">CEBU TECHNOLOGICAL
+                            UNIVERSITY <br> CEBU CITY MOUNTAIN SATELLITE CAMPUS</span>
+                      
                     </div>
-                </li>          
-                <li class="dropdown">
-                    <a href="#">More</a>
-                    <div class="dropdown-content">
-                        <a href="#news">News</a>
-                        <a href="#events">Events</a>
-                        <a href="#events">Contacts</a>
+                </a>
+
+                  
+
+                <div class="header-right">
+                    <div class="h-menu-wrap d-none d-xl-block">
+                        <ul class="h-menu">
+                   
+                           
+                            </li>
+                            <li>
+                                <a href="/">Home</a>
+                                <ul>
+                                <li><a href="#about-us">About Us</a></li>
+                                <li><a href="{{route('contact')}}">Contact Us</a></li>    
+                                <li><a href="#programs">Programs Offered</a></li>                            
+                                <li><a href="#faculty">Faculty</a></li>
+                                <li><a href="#student-services">Student Services</a></li>
+                                <li><a href="#announcement">Announcements</a></li>
+                                <li><a href="#publications">Research & Publication</a></li>
+                                </ul>
+                            </li>
+                        
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </nav>
+                    <div class="menu-trigger d-xl-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="h-btn d-none d-xl-block ms-xl-4">
+                        <a href="#" class="btn btn-primary rounded-40">
+                            Sign In
+                        </a>
+                        <a href="#" class="text-heading fw-semibold ms-3">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-wrap d-xl-none">
+
+            
+            <div class="menu-close">
+                <i class="icofont-close-line"></i>
+            </div>
+            <div class="mobile-menu"></div>
+            <div class="my-4">
+                <a href="/" class="btn btn-primary rounded-40 me-3">
+                    Sign In
+                </a>
+                <a href="/" class="btn btn-primary rounded-40">
+                    Sign Up
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Image Slider -->
-    <section class="slider">
-        <div class="slides">
-            <img src="https://via.placeholder.com/1200x400/005587/FFD200?text=Welcome+to+CTU" alt="CTU Banner 1">
-            <img src="https://via.placeholder.com/1200x400/002A40/FFD200?text=Excellence+in+Education" alt="CTU Banner 2">
-            <img src="https://via.placeholder.com/1200x400/005587/FFD200?text=Innovate+and+Inspire" alt="CTU Banner 3">
+
+<!-- Announcements Section -->
+<div class="hero-banner-sec" id="announcement">
+    <div class="container">
+        <div class="sec-title text-center" data-aos="fade-up">
+            <h1 data-watermark="Announcements">
+            <h1 style="color:white"><span>University</span > Announcements</h1>
+            <p>Stay updated with the latest news and announcements from Cebu Technological University.</p>
         </div>
-    </section>
 
-    <!-- Welcome Section -->
-    <section id="about" class="welcome">
-        <h2>Welcome to CTU-CCMSC School Management System</h2>
-        <p>Experience world-class education and cutting-edge technology at Cebu Technological University. Our platform streamlines academic and administrative tasks for students, faculty, and staff.</p>
-    </section>
+        <div class="row">
+            @if($announcements->isEmpty())
+                <div class="col-12 text-center">
+                    <p>No announcements posted yet. Please check back later.</p>
+                </div>
+            @endif
 
-    <!-- Footer with Social Links -->
-    <footer>
-        <p>&copy; 2025 Cebu Technological University</p>
-        <div class="social-links">
-            <a href="#">Facebook</a> |
-            <a href="#">Twitter</a> |
-            <a href="#">LinkedIn</a>
+            @foreach ($announcements as $announcement)
+                <div class="col-12 col-md-4 mb-4" data-aos="fade-up">
+                            <div class="card card-school h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-megaphone section-icon me-2"></i>
+                                        {{ $announcement->title }}
+                                    </h5>
+                                    <p class="card-text">{{ Str::limit(strip_tags($announcement->body), 150) }}</p>
+                                    <a href="#" class="btn btn-sm btn-primary mt-2">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+            @endforeach
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</div> <!-- /.hero-banner-sec -->
+
+ 
+    <div class="hero-banner-sec" id="programs">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-5 d-none d-md-block">
+                    <div class="hero-banner-img pe-md-5">
+                        <img src="landingpage/img/LLilogolights3.png" alt="">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="sec-title text-center" data-aos="fade-up">
+                        <h1 data-watermark="Programs">
+                        <h1 style="color:white"><span>Academic</span> Programs</h1>
+                        <p>Explore our wide range of undergraduate and graduate programs.</p>
+                    </div>
+                    
+                  <div class="banner-sec py-5" id="alumni">
+   
+
+        <!-- Alumni Add Form -->
+        <div class="text-center mb-5">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addAlumnusForm"
+                aria-expanded="false" aria-controls="addAlumnusForm">
+                ENROLL NOW
+            </button>
         </div>
-    </footer>
+        
+        <div class="collapse mb-5" id="addAlumnusForm">
+            <div class="card card-body shadow-sm border-0 rounded-4">
+                <form action="{{ route('alumni.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="course" class="form-label">Course</label>
+                            <input type="text" name="course" id="course" class="form-control" required>
+                        </div>   
+                        <div class="col-md-6">
+                            <label for="image" class="form-label">Profile Image</label>
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*" required>
+                        </div>
+        
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-success">ENROLL NOW</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <script>
-        // Image Slider JavaScript
-        let slideIndex = 0;
-        function showSlides() {
-            const slides = document.querySelectorAll(".slider img");
-            slides.forEach(slide => slide.style.display = "none");
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].style.display = "block";
-            setTimeout(showSlides, 3000);
-        }
-        document.addEventListener("DOMContentLoaded", showSlides);
-    </script>
+
+        <div class="row">
+            @forelse($alumni as $alumnus)
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100 text-center shadow-sm border-0 rounded-4 p-3">
+                        <img src="{{ asset('storage/' . $alumnus->image) }}" alt="{{ $alumnus->name }}"
+                            class="img-fluid rounded-circle mx-auto mb-3"
+                            style="width: 120px; height: 120px; object-fit: cover;">
+
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">{{ $alumnus->name }}</h5>
+                            <p class="mb-1 text-muted">{{ $alumnus->course }} — Class of {{ $alumnus->graduation_year }}</p>
+                            <p class="mb-1"><i class="bi bi-envelope me-1"></i>{{ $alumnus->email }}</p>
+                            <p class="text-success fw-semibold"><i
+                                    class="bi bi-briefcase me-1"></i>{{ $alumnus->current_job }}</p>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p class="text-muted">Enrollment is closed at this time.</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</div>
+
+  
+
+                    <div class="row">
+                        @foreach ($programs as $program)
+                            <div class="col-md-4 mb-4" data-aos="fade-up">
+                                <div class="card card-school h-100">
+                                    @if ($program->image)
+                                        <img src="{{ asset('storage/' . $program->image) }}" class="card-img-top" alt="{{ $program->name }}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="text-center card-title">
+                                            <i class="bi bi-journal-bookmark section-icon"></i>
+                                            {{ $program->name }}
+                                        </h5>
+                                        <p class="text-center card-text">{{ $program->description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach             
+                        <!-- Add more program cards here -->
+                    </div>      </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="counter-sec" id="faculty">
+    <div class="container">
+        <div class="sec-title text-center" data-aos="fade-up">
+            <h1 data-watermark="Faculty&Staff">
+            <h1><span>Our</span> Faculty</h1>
+            <p>Meet our dedicated and experienced instructors.</p>
+        </div>
+
+        <div class="row">
+            @foreach($faculties as $faculty)
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card card-school h-100 text-center shadow-sm">
+                        <img src="{{ asset('storage/' . $faculty->image) }}" alt="{{ $faculty->name }}"
+                            class="img-fluid rounded-circle mt-3 mx-auto"
+                            style="width: 120px; height: 120px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-person-badge section-icon me-2"></i>{{ $faculty->name }}
+                            </h5>
+                            <p class="text-muted mb-1">
+                                <i class="bi bi-envelope section-icon me-2"></i>{{ $faculty->email }}
+                            </p>
+                            <p class="card-text">{{ $faculty->department }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="banner-sec" id="student-services">
+    <div class="container">
+        <div class="sec-title text-center" data-aos="fade-up">
+            <h1 data-watermark="Services">
+            <h1><span>Student</span> Services</h1>
+            <p>We offer various services to support our students.</p>
+        </div>
+
+        <div class="row">
+            @foreach($services as $service)
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card card-school h-100 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="text-center card-subtitle mb-2 text-primary">
+                                <i class="bi bi-layers section-icon me-2"></i>{{ $service->type }}
+                            </h6>
+                            <h5 class="text-center card-title">{{ $service->title }}</h5>
+                            <p class="text-center card-text">{{ Str::limit($service->description, 150) }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="countdown-sec" id="about-us">
+    <div class="container">
+        <div class="sec-title text-center" data-aos="fade-up">
+            <section class="bg-white dark:bg-gray-900">
+                <div class="max-w-screen-xl px-4 py-10 mx-auto lg:py-16 lg:px-6">
+                    <div class="max-w-3xl mx-auto text-center mb-10">
+                        <h1 data-watermark="About Us"><span>About</span> Us</h1>
+                        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+                            Sustainability
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                            The Cebu Technological University (CTU) is geared towards supporting sustainability via
+                            impactful research,
+                            instruction, and extension. With several campuses all over Cebu, Philippines, it has
+                            maintained strong
+                            linkages with the Local Government Units (LGUs). Likewise, its internationalization program
+                            has been active
+                            in forming global partnerships.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                            Along with its initiatives, CTU has numerous centers to support its sustainability program
+                            which are as
+                            follows: the University Center for Education for Sustainable Development (Argao and Main
+                            Campuses);
+                            Center for Internationalization and ASEAN Integration (Main Campus); Center for Climate
+                            Change (Argao
+                            Campus); Biodiversity, Environment and Natural Resources Research Center (Argao Campus);
+                            Institute for Water Resources (Mountain Extension Campus); Center for Biotechnology (Barili
+                            Campus);
+                            Center for Renewable Energy (Main Campus); Center for Sustainable Energy and Technology
+                            Management
+                            (Main Campus); Research and Development Center for Engineering Emerging Technologies (Main
+                            Campus);
+                            Integrated Coastal and Marine Resources Management Center (Main and Carmen Campuses); Center
+                            for Limnological
+                            Aquatic Biodiversity and Mariculture Studies (San Francisco Campus); and soon, the Center
+                            for Resiliency
+                            (Main Campus).
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                            The University has implemented several activities relevant to the United Nations’
+                            Sustainable Development
+                            Goals (SDGs) through its Community Extension arm and the Shared-Service Facility (SSF)
+                            Centers (mainly
+                            for the faculty). These initiatives are reflected in the Community Extension site of the
+                            University. On
+                            the other hand, the University Community Welfare Office, through the National Service
+                            Training Program
+                            (NSTP), conducts sustainability-relevant activities for the students.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                            CTU has recently been recognized for its “Hablon de Cebu” initiative (local handweaving) for
+                            Government
+                            Best Practices for 2019. It was selected among the 156 entries from 95 government
+                            organizations in the
+                            Philippines. Hablon de Cebu also won the “Best Handicraft” award during the State
+                            Universities and Colleges
+                            (SUC) Expo in Manila, Philippines last March 2020 by the Commission on Higher Education
+                            (CHED). This
+                            initiative was previously recognized by BPI Sinag Foundation in 2018 as one of the top micro
+                            enterprises
+                            in the Philippines. Hablon de Cebu is mainly led by the University Center for ESD and the
+                            Community
+                            Extension arm of the Argao Campus.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+  
+
+<div class="banner-sec" id="jobs">
+    <div class="container">
+        <div class="sec-title text-center mb-5" data-aos="fade-up">
+            <h1 data-watermark="Opportunities">
+            <h1><span>Job</span> Opportunities</h1>
+            <p>Explore the latest job openings from our partner companies and organizations.</p>
+        </div>
+
+        <div class="row">
+            @forelse($jobs as $job)
+                <div class="col-md-4 mb-4" data-aos="fade-up"> <!-- changed from col-md-6 to col-md-4 -->
+                    <div class="card card-school h-100 shadow-sm" style="max-width: 350px; margin: auto;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $job->job_title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $job->company }}</h6>
+                            <p class="card-text">{{ Str::limit($job->description, 120) }}</p>
+                            <p class="card-text mb-1"><strong>Location:</strong> {{ $job->location }}</p>
+                            <p class="card-text mb-3">
+                                <strong>Application Deadline:</strong>
+                                {{ \Carbon\Carbon::parse($job->deadline)->format('M d, Y') }}
+                            </p>
+                            <a href="/" class="btn btn-sm btn-primary mt-auto align-self-start">
+                                Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p>No job opportunities available at the moment.</p>
+                </div>
+            @endforelse
+        </div>        
+    </div>
+</div>
+
+
+
+
+<div class="banner-sec" id="ojt">
+    <div class="container">
+        <div class="sec-title text-center mb-5" data-aos="fade-up">
+            <h1 data-watermark="OJT">
+            <h1><span>On-the-Job</span> Training</h1>
+            <p>Our OJT program bridges academic knowledge with real-world experience.</p>
+        </div>
+
+        <div class="row">
+            @forelse($ojtPrograms as $program)
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card card-school h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $program->student_name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $program->company_name }}</h6>
+                            <p class="card-text mb-1"><strong>Position:</strong> {{ Str::limit($program->position, 100) }}
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Duration:</strong>
+                                {{ \Carbon\Carbon::parse($program->start_date)->format('M d, Y') }}
+                                –
+                                {{ \Carbon\Carbon::parse($program->end_date)->format('M d, Y') }}
+                            </p>
+                            @if($program->remarks)
+                                <p class="card-text mt-auto"><strong>Remarks:</strong> {{ Str::limit($program->remarks, 100) }}
+                                </p>
+                            @endif
+                            <a href="/"
+                                class="btn btn-sm btn-primary mt-3 align-self-start">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p>No OJT programs available at the moment.</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="banner-sec py-5" id="alumni">
+    <div class="container">
+        <div class="sec-title text-center mb-5" data-aos="fade-up">
+            <h1 data-watermark="Alumnus">
+            <h1><span>Our</span> Alumni</h1>
+            <p class="text-muted">Discover the success stories of our graduates and their impact worldwide.</p>
+        </div>
+
+        <!-- Alumni Add Form -->
+        <div class="text-center mb-5">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addAlumnusForm"
+                aria-expanded="false" aria-controls="addAlumnusForm">
+                Sign in as an Alumni in CTU
+            </button>
+        </div>
+        
+        <div class="collapse mb-5" id="addAlumnusForm">
+            <div class="card card-body shadow-sm border-0 rounded-4">
+                <form action="{{ route('alumni.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="course" class="form-label">Course</label>
+                            <input type="text" name="course" id="course" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="graduation_year" class="form-label">Graduation Year</label>
+                            <input type="number" name="graduation_year" id="graduation_year" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="current_job" class="form-label">Current Job</label>
+                            <input type="text" name="current_job" id="current_job" class="form-control" required>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <label for="image" class="form-label">Profile Image</label>
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*" required>
+                        </div>
+        
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-success">Add Alumni</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row">
+            @forelse($alumni as $alumnus)
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100 text-center shadow-sm border-0 rounded-4 p-3">
+                        <img src="{{ asset('storage/' . $alumnus->image) }}" alt="{{ $alumnus->name }}"
+                            class="img-fluid rounded-circle mx-auto mb-3"
+                            style="width: 120px; height: 120px; object-fit: cover;">
+
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">{{ $alumnus->name }}</h5>
+                            <p class="mb-1 text-muted">{{ $alumnus->course }} — Class of {{ $alumnus->graduation_year }}</p>
+                            <p class="mb-1"><i class="bi bi-envelope me-1"></i>{{ $alumnus->email }}</p>
+                            <p class="text-success fw-semibold"><i
+                                    class="bi bi-briefcase me-1"></i>{{ $alumnus->current_job }}</p>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p class="text-muted">No alumni records found.</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</div>
+
+  
+
+
+
+
+<div class="team-sec pb-100" id="publications">
+    <div class="container">
+        <div class="sec-title text-center mb-5" data-aos="fade-up">
+            <h1 data-watermark="Research&Publications">
+            <h1><span>Research</span> & Publications</h1>
+            <p class="text-muted">Empowering innovation through knowledge creation and dissemination.</p>
+        </div>
+
+        <div class="row">
+            @forelse ($researches as $research)
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="card shadow-sm h-100 border-0 rounded-4">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary fw-bold">{{ $research->title }}</h5>
+                            <p class="mb-2"><strong>Author(s):</strong> {{ $research->authors }}</p>
+                            <p class="flex-grow-1 text-muted">
+                                <strong>Abstract:</strong>
+                                {{ Str::limit(strip_tags($research->abstract), 120, '...') }}
+                            </p>
+
+                            @if($research->pdf)
+                                <a href="{{ asset('storage/' . $research->pdf) }}" target="_blank"
+                                    class="btn btn-outline-primary btn-sm mt-auto w-100">
+                                    <i class="bi bi-file-earmark-pdf"></i> View Full PDF
+                                </a>
+                            @else
+                                <span class="text-danger small mt-auto">PDF not available</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p class="text-muted">No research publications available at the moment.</p>
+                </div>
+            @endforelse
+        </div>
+
+        <!-- Call-to-action -->
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="/" class="btn btn-primary px-4 py-2">
+                <i class="bi bi-journal-bookmark-fill me-1"></i> Explore All Research & Journals
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<footer class="bg-secondary-gradient">
+    <div class="footer-sec pt-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 py-4">
+                    <div class="footer-widget">
+                        <a href="#" class="footer-logo mb-4">
+                            <img src="#" style="width:auto" alt="">
+                        </a>
+                       
+                        <div class="social-icons">
+                            <a href="#">
+                                <i class="icofont-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icofont-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icofont-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="icofont-youtube-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 py-4">
+                    <div class="footer-widget">
+                        <h4 class="footer-widget-title text-black">Sitemap</h4>
+                        <ul class="footer-widget-menu column-2">
+                            <li><a href="#about-us">About Us</a></li>
+                            <li><a href="{{route('contact')}}">Contact Us</a></li>
+                            <li><a href="#faculty">Faculty</a></li>
+                            <li><a href="#announcement">Announcements</a></li>
+                            
+                         
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 py-4">
+                    <div class="footer-widget">
+                        <h4 class="footer-widget-title text-black">Link</h4>
+                        <ul class="footer-widget-menu mb-4">
+                            <li><a href="#publications">Research & Publication</a></li>
+                            <li><a href="#student-services">Student Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-4 col-md-6">
+                    <div class="footer-widget">
+                        <h4 class="footer-widget-title">Newsletter</h4>
+                        <p>Subscribe our newsletter for get Update</p>
+                        <div class="newsletter-widget mb-4">
+                            <input type="email" placeholder="Enter your email address">
+                            <input type="submit" value="Send">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-sec border-top border-white">
+        <div class="container">
+            <div class="copyright-inner text-center d-block">
+                <p>Copyright © 2025 Cebu Technological University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+ <script src="landingpage/js/1-jquery-3.3.1.min.js"></script>
+  <script src="landingpage/js/app.min.js"></script>
+  <script src="landingpage/js/scripts.js"></script>
 </body>
 </html>
